@@ -13,7 +13,6 @@ export const RPC_URL =
   process.env.RPC_URL || "https://matic-mumbai.chainstacklabs.com";
 export const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 
-// const depositPrivKey = ethers.utils.hexlify(ethers.utils.randomBytes(32));
 export const signerEOA = new ethers.Wallet(
   process.env.SIGNER_PRIV_KEY!,
   provider

@@ -4,6 +4,7 @@
   "description": "Demo of the sequence smart wallet on local",
   "scripts": {
     "build": "rm -rf build && tsc -p .",
+    "generateSignerPK": "yarn build && node build/index.js generateSignerPK",
     "deploy": "yarn build && node build/index.js deploy",
     "balance": "yarn build && node build/index.js balance",
     "tokenBalance": "yarn build && node build/index.js tokenBalance",

@@ -21,6 +21,14 @@ program
   .description("A demo CLI for smart wallet");
 
 program
+  .command("generateSignerPK")
+  .description("deploy smart wallet for signer EOA")
+  .action(() => {
+    const key = ethers.utils.hexlify(ethers.utils.randomBytes(32));
+    console.log("Signer EOA private key:", key);
+  });
+
+program
   .command("deploy")
   .description("deploy smart wallet for signer EOA")
   .action(async () => {
