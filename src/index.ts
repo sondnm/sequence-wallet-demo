@@ -34,6 +34,7 @@ program
   .action(async () => {
     const wallet = await deployWallet(signerEOA);
     console.log("Smart wallet deployed:", wallet);
+    console.log("Smart wallet address:", wallet.address);
   });
 
 program
