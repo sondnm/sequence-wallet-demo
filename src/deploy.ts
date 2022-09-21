@@ -18,9 +18,16 @@ export const deployWallet = async (EOA: ethers.Wallet): Promise<Wallet> => {
       signers: [{ weight: 1, address: EOA.address }],
     },
   });
-  let tx = await relayer.deployWallet(wallet.config, wallet.context);
-  console.log(">>> deploy done");
-  console.log("tx hash:", tx.hash);
+  console.log("Smart wallet address:", wallet.address);
+
+  if (await provider.getCode(wallet.address) == '0x') {
+    let tx = await relayer.deployWallet(wallet.config, wallet.context);
+    console.log(">>> deploy done");
+    console.log("tx hash:", tx.hash);
+  } else {
+    console.log("Wallet already deployed!")
+  }
+
   return wallet;
 };
 
